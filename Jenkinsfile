@@ -6,7 +6,7 @@ pipeline {
         stage('Clone Repository') {
             steps {
                 echo "📥 Cloning repository..."
-                git branch: 'main', url: 'https://github.com/iddhawan01/DockerBuildTagPushToDockerHub.git'
+                git branch: 'main', url: 'https://github.com/iddhawan01/Jenkinsfile-from-SCM.git'
                 echo "✅ Clone completed!"
             }
         }
@@ -15,7 +15,6 @@ pipeline {
             steps {
                 sh '''
                     echo "🐳 Starting Docker Build..."
-                    cd 03-Clone-And-DockerBuild-Jenkinsfile
                     docker build -t my-first-image .
                 '''
             }
