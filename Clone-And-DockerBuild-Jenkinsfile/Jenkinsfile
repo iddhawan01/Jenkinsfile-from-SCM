@@ -15,7 +15,7 @@ pipeline {
             steps {
                 sh '''
                     echo "🐳 Starting Docker Build..."
-                    cd 03-Clone-And-DockerBuild-Jenkinsfile
+                    cd Clone-And-DockerBuild-Jenkinsfile
                     docker build -t my-first-image .
                 '''
             }
