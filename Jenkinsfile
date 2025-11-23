@@ -23,7 +23,7 @@ pipeline {
 
     post {
         success {
-            echo "🎉 Docker image built successfully (Use Case 3)"
+            echo "🎉 Docker image built successfully (Use Case)"
         }
         failure {
             echo "❌ Build failed — check logs."
