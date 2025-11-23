@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+
+    stages {
+
+        stage('Clone Repository') {
+            steps {
+                echo "📥 Cloning repository..."
+                git branch: 'main', url: 'https://github.com/iddhawan01/DockerBuildTagPushToDockerHub.git'
+                echo "✅ Clone completed!"
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh '''
+                    echo "🐳 Starting Docker Build..."
+                    cd 03-Clone-And-DockerBuild-Jenkinsfile
+                    docker build -t my-first-image .
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "🎉 Docker image built successfully (Use Case 3)"
+        }
+        failure {
+            echo "❌ Build failed — check logs."
+        }
+    }
+}
